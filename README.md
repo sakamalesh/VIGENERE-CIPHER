@@ -29,8 +29,38 @@ STEP-7: The junction character where these two meet forms the cipher character.
 STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
-## PROGRAM
+## PROGRAM:
+'''
 
-## OUTPUT
 
-## RESULT
+        #include <stdio.h>
+        #include <string.h>
+        
+        void encrypt(char text[], char key[]) {
+            int i, textLen = strlen(text), keyLen = strlen(key);
+            for (i = 0; i < textLen; i++)
+                text[i] = ((text[i] - 'A') + (key[i % keyLen] - 'A')) % 26 + 'A';
+            printf("Encrypted Text: %s\n", text);
+        }
+        
+        int main() {
+            char text[100], key[100];
+        
+            printf("Enter plaintext (UPPERCASE): ");
+            scanf("%s", text);
+        
+            printf("Enter key (UPPERCASE): ");
+            scanf("%s", key);
+        
+            encrypt(text, key);
+        
+            return 0;
+        }
+'''
+
+## OUTPUT:
+![image](https://github.com/user-attachments/assets/19fe5bef-5497-409d-a29a-df095b18a0ce)
+
+## RESULT:
+The program is executed successfully
+
